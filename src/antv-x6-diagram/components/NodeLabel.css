@@ -1,0 +1,22 @@
+.draw_diagram-node-label {
+  width: 210px;
+  display: block;
+  padding: 2px 0px;
+  position: relative;
+}
+
+.draw_diagram-node-label-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.draw_diagram-node-label-select-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.draw_diagram-node-label-select-index {
+  font-size: 14px;
+  margin-right: 5px;
+}

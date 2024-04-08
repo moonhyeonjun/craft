@@ -1,0 +1,55 @@
+.draw_diagram-wapper {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.draw_diagram-setting {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.draw_diagram-graph {
+  flex: 1;
+  height: 100vh;
+  box-shadow: 0 0 10px 1px #e9e9e9;
+}
+
+.draw_diagram-edge-label {
+  border: 2px solid #3300a3;
+  background-color: #ffffff;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.draw_diagram-edge-label:hover {
+  background-color: #3300a3;
+  color: #ffffff;
+  transition: 0.16s;
+  cursor: pointer;
+}
+
+.draw_diagram-setting-drawer {
+  > button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+    color: #3300a3;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    cursor: pointer;
+  }
+}
+
+.ant-drawer-body {
+  padding: 0 !important;
+}
