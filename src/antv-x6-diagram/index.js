@@ -288,23 +288,21 @@ const AntvX6Diagram = () => {
     }
   };
 
-  const onChanged = (settings) => {
+  const onChanged = (count) => {
     graph.clearCells();
-    const nodes = new Array(settings.count).fill("");
+    const nodes = new Array(count).fill("");
     const nodeLabels = nodes.map((_, idx) => {
       return { value: null, idx };
     });
     setNodeLabels(nodeLabels);
-    Array.from({ length: settings.count }).forEach((_, n) => {
+    Array.from({ length: count }).forEach((_, n) => {
       const { clientWidth, clientHeight } = graph.view.container;
-      const divisionDistance = clientWidth / settings.count;
+      const divisionDistance = clientWidth / count;
       const width = (divisionDistance / 2) * (2 * n + 1);
       addNodes(n, width, clientHeight);
     });
     setCountNodes(
-      Array.from({ length: settings.count }, (_, i) => [
-        { idx: i, value: null },
-      ])
+      Array.from({ length: count }, (_, i) => [{ idx: i, value: null }])
     );
   };
 

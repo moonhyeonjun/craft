@@ -9,13 +9,13 @@ const defaults = {
 
 const NodeCount = ({ onChange }) => {
   const [state, setState] = useState(defaults);
-  const notifyChange = () => {
-    onChange(state);
+  const notifyChange = (count) => {
+    onChange(count);
   };
 
   const onCountChanged = (count) => {
     setState({ ...state, count });
-    notifyChange();
+    notifyChange(count);
   };
 
   const onCountPlus = () => {
