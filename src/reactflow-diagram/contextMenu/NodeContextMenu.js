@@ -46,8 +46,19 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
   };
 
   const deleteProcessHandler = () => {
-    setNodes((nodes) => nodes.filter((node) => node.id !== id));
-    setEdges((edges) => edges.filter((edge) => edge.source !== id));
+    const filteredNodes = nodes.filter(
+      (node) => node.id !== id && node.data.include?.id !== id
+    );
+
+    const filteredEdges = getEdges().filter(
+      (edge) => edge.source !== id && edge.target !== id
+    );
+
+    dispatch(reducerSlice.saveNode(filteredNodes));
+    dispatch(reducerSlice.saveEdge(filteredEdges));
+
+    setNodes([...filteredNodes, ...lifecycleGroups]);
+    setEdges(filteredEdges);
   };
 
   const changeProcessNameModal = () => {
