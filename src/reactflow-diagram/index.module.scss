@@ -1,0 +1,80 @@
+.react_flow_diagram-wrapper {
+  height: 100vh;
+}
+
+.panel {
+  button {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-size: inherit;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    width: 100%;
+    color: #000000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.connected-material-wrapper {
+  position: absolute;
+  top: 100px;
+  right: 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 320px);
+  margin: 0;
+  list-style: none;
+}
+
+.connected-material {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #ccc;
+  background-color: #ffffff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.highlight {
+  background-color: #ff0072;
+  color: white;
+}
+
+.node-modal-visible-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d3d3d3;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.active-system-boundary {
+  pointer-events: none !important;
+}

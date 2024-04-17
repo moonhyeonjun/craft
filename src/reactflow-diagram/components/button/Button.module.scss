@@ -1,0 +1,31 @@
+.custom-context-menu-button button {
+  border: none;
+  display: block;
+  padding: 0.5em;
+  text-align: left;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.custom-context-menu-button button:hover {
+  color: #ffffff;
+  background: #007bff;
+
+  svg {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+}
+
+.under-divider {
+  border-bottom: 1px solid #ccc;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+}
