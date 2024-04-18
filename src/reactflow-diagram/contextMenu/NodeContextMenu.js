@@ -10,6 +10,7 @@ import * as reducerSlice from "../../store/reducers/reactFlowDiagram";
 import { defaultEdgeOptions } from "../constants/defaultEdgeOptions";
 import { Lifecycle } from "../constants/lifecycle";
 import { store } from "../../store/index";
+import uuid from "react-uuid";
 import CustomContextMenuButton from "../components/button/CustomContextMenuButton";
 
 import classNames from "classnames/bind";
@@ -18,7 +19,6 @@ import styles from "./ContextMenu.module.scss";
 const cn = classNames.bind(styles);
 
 const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
-  const uuid = useId();
   const dispatch = useDispatch();
   const inputRef = useRef(null);
   const { getNodes, getNode, setNodes, getEdges, setEdges } = useReactFlow();
@@ -122,11 +122,11 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
 
   const groupingProcess = () => {
     if (selectedNodes.length < 2)
-      return toast.error("Please select more than 2 nodes");
+      return alert("Please select more than 2 nodes");
 
-    const isGrouping = selectedNodes.some((node) => node.type === "Grouping");
+    const isGrouping = selectedNodes.some((node) => node.type === "grouping");
 
-    if (isGrouping) return toast.error("The process is already grouped.");
+    if (isGrouping) return toast.error("Grouping cannot be nested.");
 
     const position = selectedNodes.map((node) => {
       return node.position;
@@ -154,7 +154,6 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
       }
     });
 
-    // id는 selectedNodes들의 id값을 합친 값
     const id = selectedNodes.map((node) => node.id).join("-");
 
     const newNodes = {
@@ -162,7 +161,6 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
       data: { label: "Grouping", include: selectedNodes },
       position: { x, y },
       type: "Grouping",
-      dataCategory: "Grouping",
       style: {
         width: 120,
         height: 100,
@@ -183,7 +181,7 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
 
       if (selectedNodeIds.includes(edge.source)) {
         newEdges.push({
-          id: `edge-${uuid}`,
+          id: uuid(),
           source: newNodes.id,
           target: edge.target,
           ...defaultEdgeOptions,
@@ -198,7 +196,7 @@ const NodeContextMenu = ({ id, top, left, right, bottom, ...props }) => {
         )?.color;
 
         newEdges.push({
-          id: `edge-${uuid}`,
+          id: uuid(),
           source: edge.source,
           target: newNodes.id,
           style: { ...defaultEdgeOptions.style, stroke: edgeColor },

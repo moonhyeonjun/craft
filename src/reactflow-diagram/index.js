@@ -24,7 +24,6 @@ import FloatingConnectionLine from "./edgeTypes/FloatingConnectionLine";
 import NodeContextMenu from "./contextMenu/NodeContextMenu";
 import EdgeContextMenu from "./contextMenu/EdgeContextMenu";
 import PaneContextMenu from "./contextMenu/PaneContextMenu";
-import useExpandCollapse from "./hooks/useExpandCollapse";
 import Shortcut from "./shortcut";
 import styles from "./index.module.scss";
 import classNames from "classnames/bind";
@@ -80,11 +79,6 @@ const Flow = () => {
   const [paneMenu, setPaneMenu] = useState();
 
   const { getNode } = useReactFlow();
-
-  const { nodes: visibleNodes, edges: visibleEdges } = useExpandCollapse(
-    nodes,
-    edges
-  );
 
   useEffect(() => {
     const lifecycleGroups = createGroupNode({ lifecycle: "Cradle-to-Grave" });
@@ -487,8 +481,8 @@ const Flow = () => {
       <Shortcut />
       <ReactFlow
         ref={flowRef}
-        nodes={visibleNodes}
-        edges={visibleEdges}
+        nodes={nodes}
+        edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onNodeClick={onNodeCilick}

@@ -16,11 +16,7 @@ const Shortcut = () => {
   return (
     <div className={cn("short-cut-wapper")}>
       {buttons.map((button, index) => (
-        <div
-          className={cn("button")}
-          key={index}
-          //  onClick={button.onClick}
-        >
+        <div className={cn("button")} key={index}>
           <Tooltip title={button.title} placement="bottom">
             {button.icon}
           </Tooltip>
