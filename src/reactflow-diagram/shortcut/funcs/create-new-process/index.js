@@ -4,7 +4,7 @@ import { FaRegSquarePlus } from "react-icons/fa6";
 import { useReactFlow, useStore } from "reactflow";
 import { addNode } from "../../../../store/reducers/reactFlowDiagram";
 
-const nodeWidth = 120;
+const nodeWidth = 140;
 const nodeHeight = 100;
 
 const transformSelector = (state) => state.transform;
