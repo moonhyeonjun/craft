@@ -1,5 +1,11 @@
 import { MarkerType } from "reactflow";
+import { Lifecycle } from "../constants/lifecycle";
 
+const rawMaterialsColor = Lifecycle.find((l) => l.type === "Raw materials").color;
+const useColor = Lifecycle.find((l) => l.type === "Use").color;
+const transportColor = Lifecycle.find((l) => l.type === "Transport").color;
+const manufacturingColor = Lifecycle.find((l) => l.type === "Manufacturing").color;
+ 
 export const initNodes = [
   {
     id: "Raw materials-1632797389923",
@@ -64,11 +70,11 @@ export const initEdges = [
     id: "Raw materials-1632797389923Manufacturing-1632797389924",
     source: "Raw materials-1632797389923",
     target: "Manufacturing-1632797389924",
-    style: { strokeWidth: 5, stroke: "#185959" },
+    style: { strokeWidth: 5, stroke: rawMaterialsColor },
     type: "floating",
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: "#185959",
+      color: rawMaterialsColor
     },
     animated: true,
     zIndex: 9999,
@@ -77,11 +83,11 @@ export const initEdges = [
     id: "Manufacturing-1632797389924Transport-1632797389925",
     source: "Manufacturing-1632797389924",
     target: "Transport-1632797389925",
-    style: { strokeWidth: 5, stroke: "#63CAF2" },
+    style: { strokeWidth: 5, stroke: manufacturingColor },
     type: "floating",
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: "#63CAF2",
+      color: manufacturingColor
     },
     animated: true,
     zIndex: 9999,
@@ -90,11 +96,11 @@ export const initEdges = [
     id: "Transport-1632797389925Use-1632797389926",
     source: "Transport-1632797389925",
     target: "Use-1632797389926",
-    style: { strokeWidth: 5, stroke: "#9C7EB2" },
+    style: { strokeWidth: 5, stroke: transportColor },
     type: "floating",
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: "#9C7EB2",
+      color: transportColor,
     },
     animated: true,
     zIndex: 9999,
@@ -103,11 +109,11 @@ export const initEdges = [
     id: "Use-1632797389926Disposal-1632797389927",
     source: "Use-1632797389926",
     target: "Disposal-1632797389927",
-    style: { strokeWidth: 5, stroke: "#87DCB4" },
+    style: { strokeWidth: 5, stroke: useColor },
     type: "floating",
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: "#87DCB4",
+      color: useColor,
     },
     animated: true,
     zIndex: 9999,
@@ -116,11 +122,11 @@ export const initEdges = [
     id: "Raw materials-1632797389928Manufacturing-1632797389929",
     source: "Raw materials-1632797389928",
     target: "Manufacturing-1632797389929",
-    style: { strokeWidth: 5, stroke: "#185959" },
+    style: { strokeWidth: 5, stroke: rawMaterialsColor },
     type: "floating",
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: "#185959",
+      color: rawMaterialsColor,
     },
     animated: true,
     zIndex: 9999,
