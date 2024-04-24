@@ -417,13 +417,12 @@ const Flow = () => {
           style: {
             width: 400,
             height: 1000,
-            backgroundColor: node.backgroundColor,
+            backgroundColor: `${node.color}10`,
             border: "1px solid #ccc",
           },
         };
       })
       .filter(Boolean);
-
     return groupNodes;
   };
 
