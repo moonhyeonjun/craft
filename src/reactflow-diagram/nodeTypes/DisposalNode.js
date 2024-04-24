@@ -1,11 +1,12 @@
 import { memo } from "react";
 import { NodeResizer, useReactFlow } from "reactflow";
+import { Lifecycle } from "../constants/lifecycle";
 import Node from "./Node";
 
 const DisposalNode = ({ id, data, selected }) => {
   const { getNode, setNodes } = useReactFlow();
 
-  const color = "#FFA222";
+  const color = Lifecycle.find((l) => l.type === "Disposal").color;
 
   const onResizeEnd = () => {
     const node = getNode(id);

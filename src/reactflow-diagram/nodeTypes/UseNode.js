@@ -2,13 +2,14 @@ import { memo } from "react";
 import { NodeResizer, useReactFlow } from "reactflow";
 import { useDispatch } from "react-redux";
 import { editNode } from "../../store/reducers/reactFlowDiagram";
+import { Lifecycle } from "../constants/lifecycle";
 import Node from "./Node";
 
 const UseNode = ({ id, data, selected }) => {
   const dispatch = useDispatch();
   const { getNode, setNodes } = useReactFlow();
 
-  const color = "#87DCB4";
+  const color = Lifecycle.find((l) => l.type === "Use").color;
 
   const onResizeEnd = (event, params) => {
     const { x, y, width, height } = params;
